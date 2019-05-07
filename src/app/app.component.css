@@ -1,0 +1,42 @@
+#background-img{
+  background-image: url('../assets/images/backdrop-min.jpg');
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  height: calc(100vh - 30px - 1.3125rem);
+  width: 100%;
+
+  display: flex;
+  flex-direction: column-reverse;
+
+}
+
+#nav{
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+/*.sticky + .content {
+  padding-top: 110px;
+}*/
+
+.content {
+  padding-top:100px;
+  height: 10000px;
+}
+
+h1 {
+ width: 90%;
+ margin: 0 auto;
+ text-align: center;
+ background-color: rgba(117, 161, 255, 0.144);
+ margin-bottom: 50px;
+ border-radius:  5px;
+ padding: 5%;
+}

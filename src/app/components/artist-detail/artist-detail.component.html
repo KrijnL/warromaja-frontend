@@ -1,0 +1,10 @@
+<div *ngIf='artist'>
+  <h2>{{artist.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{artist.id}}</div>
+  <div>
+    <label>name:
+      {{artist.name}}
+    </label>
+  </div>
+</div>
+<button (click)="goBack()">go back</button>

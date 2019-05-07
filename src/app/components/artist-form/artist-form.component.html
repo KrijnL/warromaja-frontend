@@ -1,0 +1,64 @@
+<div [hidden]="submitted" class="container">
+  {{artist}}
+  <h1>Artist form</h1>
+  <form (ngSubmit)="onSubmit(artistForm)" #artistForm="ngForm" >
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" 
+      required
+      [(ngModel)]="model.name" name="name"
+      #name="ngModel">
+    </div>
+    <div [hidden]="name.valid || name.pristine"
+     class="alert alert-danger">
+     Name is required
+    </div>
+
+    <div class="form-group">
+      <label for="bio">Bio</label>
+      <input type="text" class="form-control" id="bio" 
+      required
+      [(ngModel)]="model.bio" name="bio">
+    </div>
+
+    <div class="form-group">
+      <label for="thumbnail">Thumbnail</label>
+      <input type="text" class="form-control" id="thumbnail"
+      [(ngModel)]="model.thumbnail" name="thumbnail">
+    </div>
+
+    <div class="form-group">
+      <label for="soundcloudUrl">Soundcloud url</label>
+      <input type="text" class="form-control" id="soundcloudUrl"
+      [(ngModel)]="model.soundcloudUrl" name="soundcloudUrl">
+    </div>
+
+    <button type="submit" class="btn btn-success"
+    [disabled]="!artistForm.form.valid">Submit</button>
+
+    <button type="button" class="btn btn-default" (click)="newArtist(); artistForm.reset()">New Artist</button>
+
+  </form>
+</div>
+
+<div [hidden]="!submitted" class="container">
+  <h2>You submitted the following:</h2>
+  <div class="row">
+    <div class="col-xs-3">Name</div>
+    <div class="col-xs-9">{{ model.name }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Alter Ego</div>
+    <div class="col-xs-9">{{ model.bio }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Bio</div>
+    <div class="col-xs-9">{{ model.thumbnail }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Soundcloud url</div>
+    <div class="col-xs-9">{{ model.soundcloudUrl }}</div>
+  </div>
+  <br>
+  <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+</div>
