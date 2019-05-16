@@ -1,6 +1,7 @@
 #background-img{
   background-image: url('../assets/images/backdrop-min.jpg');
-  background-size: 100% 100%;
+  background-size: cover;
+  background-position: center;
   background-attachment: fixed;
   height: calc(100vh - 30px - 1.3125rem);
   width: 100%;

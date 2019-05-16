@@ -16,6 +16,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { HomeComponent } from './components/home/home.component';
 import { ArtistFormComponent } from './components/artist-form/artist-form.component';
+import { ProductFormComponent } from './components/product-form/product-form.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ArtistFormComponent } from './components/artist-form/artist-form.compon
     NavbarComponent,
     ArtistDashboardComponent,
     HomeComponent,
-    ArtistFormComponent
+    ArtistFormComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,

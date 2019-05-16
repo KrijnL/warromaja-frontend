@@ -3,7 +3,7 @@ import { Observable, of} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Artist } from '../model/artist';
+import { Product } from '../model/artist';
 
 import { MessageService } from './message.service';
 
@@ -18,50 +18,50 @@ export class ArtistService {
 
   private artistsUrl = 'http://localhost:3000/artists';
 
-  
+
 
   constructor(
     private messageService: MessageService,
     private http: HttpClient
     ) { }
 
-  getArtists(): Observable<Artist[]> {
-    return this.http.get<Artist[]>(this.artistsUrl)
+  getArtists(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.artistsUrl)
       .pipe(
         tap(_ => this.log('fetched artists')),
-        catchError(this.handleError<Artist[]>('getArtists',  []))
+        catchError(this.handleError<Product[]>('getArtists',  []))
       );
   }
 
-  getArtist(id: number): Observable<Artist>{
+  getArtist(id: number): Observable<Product> {
     const url = `${this.artistsUrl}/${id}`;
-    return this.http.get<Artist>(url)
+    return this.http.get<Product>(url)
       .pipe(
         tap(_ => this.log(`fetched artist with id=${id}`)),
-        catchError(this.handleError<Artist>(`getArtist id=${id}`))
-      )
+        catchError(this.handleError<Product>(`getArtist id=${id}`))
+      );
   }
 
-  searchArtists(term: string): Observable<Artist[]>{
-    if(!term.trim()) {
-      //if no search term, return an empty erray
+  searchArtists(term: string): Observable<Product[]> {
+    if (!term.trim()) {
+      // if no search term, return an empty erray
       return of([]);
     }
-    return this.http.get<Artist[]>(`${this.artistsUrl}/?name=${term}`)
+    return this.http.get<Product[]>(`${this.artistsUrl}/?name=${term}`)
       .pipe(
         tap(_ => this.log(`found heroes matching ${term}`)),
-        catchError(this.handleError<Artist[]>('searchArtists', []))
-      )
+        catchError(this.handleError<Product[]>('searchArtists', []))
+      );
   }
 
-  addArtist(artist: Artist): Observable<Artist>{
-    return this.http.post<Artist>(this.artistsUrl, artist, httpOptions).pipe(
-      tap((newArtist: Artist) => this.log(`Added new artist ${newArtist.name}, id ${newArtist.id}`)),
-      catchError(this.handleError<Artist>('AddArtist'))
+  addArtist(artist: Product): Observable<Product> {
+    return this.http.post<Product>(this.artistsUrl, artist, httpOptions).pipe(
+      tap((newArtist: Product) => this.log(`Added new artist ${newArtist.name}, id ${newArtist.id}`)),
+      catchError(this.handleError<Product>('AddArtist'))
     );
   }
 
-  
+
 
   private log(message: string) {
     this.messageService.add(`ArtistService: ${message}`);
@@ -74,7 +74,7 @@ export class ArtistService {
   * @param operation - name of the operation that failed
   * @param result - optional value to return as the observable result
   */
-  private handleError<T> (operation = 'operation', result?: T){
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: Send the error to remote logging infrastructure
@@ -83,9 +83,9 @@ export class ArtistService {
       // TODO: better job of transforming error
       this.log(`${operation} failed: ${error.message}`);
 
-      //Let the app keep running and return an empty result
+      // Let the app keep running and return an empty result
       return of(result as T);
 
-    }
+    };
   }
 }

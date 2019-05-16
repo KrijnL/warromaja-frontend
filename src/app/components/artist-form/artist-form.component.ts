@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Artist } from '../../model/artist';
+import { Product } from '../../model/artist';
 import { ArtistService } from '../../services/artist.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ArtistService } from '../../services/artist.service';
 })
 export class ArtistFormComponent {
 
-  model = new Artist(11, 'Goangaroo', 'https://via.placeholder.com/300', 'Boundin', 'https://soundlcoud.com/goa-kangaroo');
+  model = new Product(11, 'Goangaroo', 'https://via.placeholder.com/300', 'Boundin', 'https://soundlcoud.com/goa-kangaroo');
 
   submitted = false;
 
@@ -21,7 +21,7 @@ export class ArtistFormComponent {
   }
 
   newArtist() {
-    this.model = new Artist(12, '','')
+    this.model = new Product(12, '','')
   }
 
   // TODO: remove this after we're done
@@ -33,7 +33,7 @@ export class ArtistFormComponent {
 
   createArtist(artist): void {
     artist.name = artist.name.trim();
-    if(!name){return}
+    if (!name) { return; }
 
   }
 

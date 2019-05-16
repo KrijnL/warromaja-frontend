@@ -1,5 +1,5 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Artist } from '../model/artist';
+import { Product } from '../model/artist';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -15,8 +15,8 @@ export class InMemoryDataService implements InMemoryDbService {
     ];
     return {artists};
   }
-  
-  genId(artists: Artist[]): number {
+
+  genId(artists: Product[]): number {
     return artists.length > 0 ? Math.max(...artists.map(artist =>  artist.id)) + 1 : 1;
   }
 

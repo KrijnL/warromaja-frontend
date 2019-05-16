@@ -1,6 +1,4 @@
-import { TrustedScriptString } from '@angular/core/src/sanitization/bypass';
-
-export class Artist{
+export class Product {
 
     constructor(
         public id: number,

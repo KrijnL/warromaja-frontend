@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Artist } from '../../model/artist'
+import { Product } from '../../model/artist'
 import { ArtistService } from '../../services/artist.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { ArtistService } from '../../services/artist.service';
   styleUrls: ['./artist-detail.component.css']
 })
 export class ArtistDetailComponent implements OnInit {
-  @Input() artist: Artist;
+  @Input() artist: Product;
 
   constructor(
     private route: ActivatedRoute,

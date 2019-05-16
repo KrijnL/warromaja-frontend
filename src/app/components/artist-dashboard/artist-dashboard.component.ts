@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Artist } from '../../model/artist';
+import { Product } from '../../model/artist';
 import { ArtistService } from '../../services/artist.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { ArtistService } from '../../services/artist.service';
 })
 export class ArtistDashboardComponent implements OnInit {
 
-  artists: Artist[] = [];
+  artists: Product[] = [];
 
   constructor(private artistService: ArtistService) { }
 

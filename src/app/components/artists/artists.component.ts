@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Artist } from '../../model/artist';
+import { Product } from '../../model/artist';
 import { ArtistService } from '../../services/artist.service';
 
 
@@ -9,12 +9,12 @@ import { ArtistService } from '../../services/artist.service';
   styleUrls: ['./artists.component.css']
 })
 export class ArtistsComponent implements OnInit {
-  artists: Artist[];
-  
-  
+  artists: Product[];
 
-  constructor(private artistService: ArtistService) { 
-    
+
+
+  constructor(private artistService: ArtistService) {
+
   }
 
   ngOnInit() {
@@ -26,6 +26,6 @@ export class ArtistsComponent implements OnInit {
     .subscribe(artists => this.artists = artists);
   }
 
-  
+
 
 }

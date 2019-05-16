@@ -5,7 +5,7 @@ import { Observable, Subject } from 'rxjs';
 import {
   debounceTime, distinctUntilChanged, switchMap
 } from 'rxjs/operators';
-import { Artist } from '../../model/artist';
+import { Product } from '../../model/artist';
 import { ArtistService } from '../../services/artist.service';
 
 @Component({
@@ -14,12 +14,12 @@ import { ArtistService } from '../../services/artist.service';
   styleUrls: ['./artist-search.component.css']
 })
 export class ArtistSearchComponent implements OnInit {
-  artists$: Observable<Artist[]>;
+  artists$: Observable<Product[]>;
   private searchTerms = new Subject<string>();
 
   constructor(private artistService: ArtistService) { }
 
-  
+
   search(term: string): void {
     this.searchTerms.next(term);
   }
